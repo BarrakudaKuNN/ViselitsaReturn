@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViselitsaReturn.Logic;
 
 namespace ViselitsaReturn
 {
@@ -20,43 +21,58 @@ namespace ViselitsaReturn
     /// </summary>
     public partial class MainWindow : Window
     {
-        char s;
+        Random random;
+        CoreLogic Core;
+        List<TextBlock> TextList;
         public MainWindow()
         {
             InitializeComponent();
-            s ='a';
+            random= new Random();
+            Core = new CoreLogic();
+            TextList = new List<TextBlock>();
+            TextList.Add(TextBlock_Word_1);
+            TextList.Add(TextBlock_Word_3);
+            TextList.Add(TextBlock_Word_4);
+            TextList.Add(TextBlock_Word_5);
+            TextList.Add(TextBlock_Word_6);
+            TextList.Add(TextBlock_Word_7);
+            TextList.Add(TextBlock_Word_8);
         }
 
         private void Button_Game_Start_Click(object sender, RoutedEventArgs e)
         {
-            TextBlock_Word_1.Text = s.ToString();
-
-
+            //Запускаем случайное слово
+            Core.Pic_Random_Word(random, Core.list_Of_Word);
+            var d = TextList.Skip(Core.Word_To_Guess.Length).Select(x => x);
+            foreach (var item in d)
+            {
+                item.Text = "Hidden";
+            }
+            TextBlock_Test.Text = Core.Word_To_Guess;
         }
         private void Keyboard_Click(object sender, KeyEventArgs e)
         {
-            char d = (char)e.Key;
-            TextBlock_Word_1.Text=d.ToString();
+            
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            char d = (char)e.Key;
-            if (e.Key == Key.A)
-            {
-                TextBlock_Word_1.Text = d.ToString();
-            }
-            else if (e.Key == Key.B)
-            {
-                TextBlock_Word_1.Text = d.ToString();
-            }
-
-            // Обработка других клавиш
+           
         }
 
-        private void TextBlock_Word_2_KeyDown(object sender, KeyEventArgs e)
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            char d = (char)e.Key;
-            TextBlock_Word_1.Text = d.ToString();
+            TextBlock_Word_3.Text = e.Key.ToString();
+
+            string lowercaseChar = e.Key.ToString().ToLower();
+
+            switch (lowercaseChar[0])
+            {
+                case 'a':
+                    e.Handled = true;
+                    TextBlock_Word_3.Text = "ф";
+                    break;
+
+            }
         }
     }
 }

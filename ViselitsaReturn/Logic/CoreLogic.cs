@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ViselitsaReturn.Logic
 {
     internal class CoreLogic
     {
-        List<string> list_Of_Word = new List<string>();
+        public List<string> list_Of_Word = new List<string>();
 
-        string word_To_Guess="";
+        string word_To_Guess="Не то";
 
-        CoreLogic()
+        int atemptCount=5;
+        public CoreLogic()
         {
-            list_Of_Word.Add("шляпа");
+            list_Of_Word.Add("дом");
             list_Of_Word.Add("мусор");
             list_Of_Word.Add("дурка");
             list_Of_Word.Add("машина");
-            list_Of_Word.Add("квартира");
+            list_Of_Word.Add("беда");
         }
 
-        void Pic_Random_Word(Random rnd, List<string> list)
+        public string Word_To_Guess { get => word_To_Guess; set => word_To_Guess = value; }
+
+        public void Pic_Random_Word(Random rnd, List<string> list)
         {
-            string word_To_Guess = list[rnd.Next(0,list.Count-1)];
+            word_To_Guess = list[rnd.Next(0,list.Count-1)];
         }
-
+        
+        public void Test(KeyEventArgs e)
+        {
+            
+        }
 
 
     }

@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ViselitsaReturn"
+        xmlns:local="clr-namespace:ViselitsaReturn" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"   Height="450" Width="800" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Margin="153,304,0,0">
             <TextBlock x:Name="TextBlock_Word_1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="43" Width="57" FontSize="20"/>
-            <TextBlock x:Name="TextBlock_Word_2" HorizontalAlignment="Left" Margin="57,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57" KeyDown="TextBlock_Word_2_KeyDown"/>
             <TextBlock x:Name="TextBlock_Word_3" HorizontalAlignment="Left" Margin="114,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
             <TextBlock x:Name="TextBlock_Word_4" HorizontalAlignment="Left" Margin="171,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
             <TextBlock x:Name="TextBlock_Word_5" HorizontalAlignment="Left" Margin="228,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
@@ -19,6 +18,7 @@
 
         </Grid>
         <Button x:Name="Button_Game_Start" Content="GameStart" HorizontalAlignment="Left" Margin="304,179,0,0" VerticalAlignment="Top" Height="67" Width="154" Click="Button_Game_Start_Click"/>
+        <TextBlock x:Name="TextBlock_Test" HorizontalAlignment="Left" Margin="224,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="65" Width="358"/>
 
     </Grid>
 </Window>
