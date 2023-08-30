@@ -19,6 +19,9 @@
         </Grid>
         <Button x:Name="Button_Game_Start" Content="GameStart" HorizontalAlignment="Left" Margin="304,179,0,0" VerticalAlignment="Top" Height="67" Width="154" Click="Button_Game_Start_Click"/>
         <TextBlock x:Name="TextBlock_Test" HorizontalAlignment="Left" Margin="224,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="65" Width="358"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="61" Text="Спроб:"/>
+        <TextBlock x:Name="TextBlock_Try_Count" HorizontalAlignment="Left" Margin="74,292,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_Letters" HorizontalAlignment="Left" Margin="56,212,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
