@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow"   Height="450" Width="800" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Margin="153,304,0,0">
-            <TextBlock x:Name="TextBlock_Word_1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="43" Width="57" FontSize="20"/>
-            <TextBlock x:Name="TextBlock_Word_3" HorizontalAlignment="Left" Margin="114,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-            <TextBlock x:Name="TextBlock_Word_4" HorizontalAlignment="Left" Margin="171,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-            <TextBlock x:Name="TextBlock_Word_5" HorizontalAlignment="Left" Margin="228,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-            <TextBlock x:Name="TextBlock_Word_6" HorizontalAlignment="Left" Margin="285,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-            <TextBlock x:Name="TextBlock_Word_7" HorizontalAlignment="Left" Margin="342,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-            <TextBlock x:Name="TextBlock_Word_8" HorizontalAlignment="Left" Margin="399,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="57"/>
-
+        <Grid x:Name="Grid_Game_Screen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="434" d:IsHidden="True">
+            <TextBlock x:Name="TextBlock_Word_1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="42" Width="57" FontSize="20" Margin="126,284,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Margin="31,289,0,0" TextWrapping="Wrap" Text="Апошняя літара:" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="31,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="61" Text="Спроб:"/>
+            <TextBlock x:Name="TextBlock_Try_Count" HorizontalAlignment="Left" Margin="79,314,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+            <TextBlock x:Name="TextBlock_Word_3" HorizontalAlignment="Left" Margin="248,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontWeight="Bold" FontSize="36"/>
+            <TextBlock x:Name="TextBlock_Word_4" HorizontalAlignment="Left" Margin="305,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlock_Word_5" HorizontalAlignment="Left" Margin="362,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlock_Word_6" HorizontalAlignment="Left" Margin="419,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlock_Word_7" HorizontalAlignment="Left" Margin="476,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlock_Word_8" HorizontalAlignment="Left" Margin="533,305,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
         </Grid>
-        <Button x:Name="Button_Game_Start" Content="GameStart" HorizontalAlignment="Left" Margin="304,179,0,0" VerticalAlignment="Top" Height="67" Width="154" Click="Button_Game_Start_Click"/>
-        <TextBlock x:Name="TextBlock_Test" HorizontalAlignment="Left" Margin="224,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="65" Width="358"/>
-        <TextBlock HorizontalAlignment="Left" Margin="26,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="61" Text="Спроб:"/>
-        <TextBlock x:Name="TextBlock_Try_Count" HorizontalAlignment="Left" Margin="74,292,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBox_Letters" HorizontalAlignment="Left" Margin="56,212,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Grid x:Name="Grid_Main_Menu" d:IsHidden="True">
+            <Button x:Name="Button_Game_Start" Content="GameStart" HorizontalAlignment="Left" Margin="304,179,0,0" VerticalAlignment="Top" Height="67" Width="154" Click="Button_Game_Start_Click"/>
+        </Grid>
 
     </Grid>
 </Window>

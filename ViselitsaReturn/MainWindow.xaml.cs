@@ -23,15 +23,21 @@ namespace ViselitsaReturn
     {
         Random random;
         CoreLogic Core;
+        Player_UI UI;
         List<TextBlock> TextList;
         public MainWindow()
         {
             InitializeComponent();
+
             random= new Random();
+
             Core = new CoreLogic();
+
+            UI = new Player_UI(Grid_Main_Menu, Grid_Game_Screen);
+            UI.Game_Lauch();
+
             TextList = new List<TextBlock>
             {
-                TextBlock_Word_1,
                 TextBlock_Word_3,
                 TextBlock_Word_4,
                 TextBlock_Word_5,
@@ -43,31 +49,23 @@ namespace ViselitsaReturn
 
         private void Button_Game_Start_Click(object sender, RoutedEventArgs e)
         {
+
             //Запускаем случайное слово
             Core.Pic_Random_Word(random, Core.list_Of_Word);
-            var d = TextList.Skip(Core.Word_To_Guess.Length).Select(x => x);
-            foreach (var item in d)
-            {
-                item.Text = "Hidden";
-            }
-            TextBlock_Test.Text = Core.Word_To_Guess;
+            UI.Game_Start();
+            UI.Hide_Unused(TextList, Core);
+            TextBlock_Try_Count.Text = Core.AtemptCount.ToString();
         }
-        private void Keyboard_Click(object sender, KeyEventArgs e)
-        {
-            
-        }
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-           
-        }
-
+        
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            Core.Translate_Input_Key(e.Key.ToString().ToLower());
-            TextBlock_Word_1.Text = Core.Inputed_Key;
-            Core.Input_Key_Chek();
+            Core.Translate_Input_Key(e.Key.ToString().ToLower(), TextBlock_Word_1);
+            Core.Input_Key_Chek_Error();
 
-
+            Core.Compare_Input_Key();
+            Core.Show_Matches_Ltr(TextList,TextBlock_Try_Count);
+            Core.Chek_Atempt(UI);
+            Core.Chek_If_You_Win(TextList,UI);
         }
     }
 }
