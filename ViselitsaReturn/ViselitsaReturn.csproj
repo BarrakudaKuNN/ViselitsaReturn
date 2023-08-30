@@ -66,6 +66,7 @@
     <Compile Include="Logic\CoreLogic.cs" />
     <Compile Include="Logic\LocalizationElements.cs" />
     <Compile Include="Logic\Player_UI.cs" />
+    <Compile Include="Logic\WinAndDefeat.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,6 +100,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Videos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="KawaFinal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="KawaMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Laugh.mp4" />
+    <Content Include="LaughAv.avi" />
+    <Content Include="LaughM3.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
