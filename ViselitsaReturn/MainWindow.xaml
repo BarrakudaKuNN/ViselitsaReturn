@@ -5,28 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViselitsaReturn" 
         mc:Ignorable="d"
-        Title="MainWindow"   Height="467" Width="800" PreviewKeyDown="Window_PreviewKeyDown" ResizeMode="NoResize">
+        Title="GuesTheWord"   Height="467" Width="800" PreviewKeyDown="Window_PreviewKeyDown" ResizeMode="NoResize">
     <Grid Height="442" VerticalAlignment="Center">
-        <Grid x:Name="Grid_Game_Screen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="414">
-            <MediaElement x:Name="MediaEl_Defeat" HorizontalAlignment="Left" Height="456" Margin="1,0,0,0" VerticalAlignment="Top" Width="794" Stretch="Fill" Source="/LaughM3.mp3" Position="00:00:00" LoadedBehavior="Manual"/>
-            <Image HorizontalAlignment="Center" Height="373" VerticalAlignment="Top" Width="800" Source="/KawaFinal.png" Stretch="Fill"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="129*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="Grid_Game_Screen" HorizontalAlignment="Left" VerticalAlignment="Center" Width="800" Height="414" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Image HorizontalAlignment="Center" Height="373" VerticalAlignment="Top" Width="800" Source="/Images/KawaFinal.png" Stretch="Fill" d:IsHidden="True"/>
 
-            <TextBlock x:Name="TextBlock_Word_1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="42" Width="57" FontSize="20" Margin="105,371,0,0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,376,0,0" TextWrapping="Wrap" Text="Апошняя літара:" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="61" Text="Спроб:"/>
-            <TextBlock x:Name="TextBlock_Try_Count" HorizontalAlignment="Left" Margin="58,401,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-            <TextBlock x:Name="TextBlock_Word_3" HorizontalAlignment="Left" Margin="254,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontWeight="Bold" FontSize="36"/>
-            <TextBlock x:Name="TextBlock_Word_4" HorizontalAlignment="Left" Margin="311,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
-            <TextBlock x:Name="TextBlock_Word_5" HorizontalAlignment="Left" Margin="368,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
-            <TextBlock x:Name="TextBlock_Word_6" HorizontalAlignment="Left" Margin="425,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
-            <TextBlock x:Name="TextBlock_Word_7" HorizontalAlignment="Left" Margin="482,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
-            <TextBlock x:Name="TextBlock_Word_8" HorizontalAlignment="Left" Margin="539,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="TextBlock_Word_1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="42" Width="57" FontSize="20" Margin="105,371,0,0" d:IsHidden="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,376,0,0" TextWrapping="Wrap" Text="Апошняя літара:" VerticalAlignment="Top" d:IsHidden="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="61" Text="Спроб:" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Try_Count" HorizontalAlignment="Left" Margin="58,401,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_3" HorizontalAlignment="Left" Margin="254,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontWeight="Bold" FontSize="36" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_4" HorizontalAlignment="Left" Margin="311,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_5" HorizontalAlignment="Left" Margin="368,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_6" HorizontalAlignment="Left" Margin="425,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_7" HorizontalAlignment="Left" Margin="482,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold" d:IsHidden="True"/>
+            <TextBlock x:Name="TextBlock_Word_8" HorizontalAlignment="Left" Margin="539,364,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="49" Width="57" FontSize="36" FontWeight="Bold" d:IsHidden="True"/>
         </Grid>
-        <Grid x:Name="Grid_Main_Menu">
-            <Image x:Name="Image_KawaMenu" HorizontalAlignment="Center" Height="444" VerticalAlignment="Top" Width="820" Source="/KawaMenu.png" Stretch="Fill" Margin="0,-9,0,0"/>
-            <Button x:Name="Button_Game_Start" Content="Час гульні" HorizontalAlignment="Left" Margin="216,323,0,0" VerticalAlignment="Top" Height="42" Width="151" Click="Button_Game_Start_Click" FontWeight="Bold" FontSize="24" Background="#FFC1A169"/>
+        <Grid x:Name="Grid_Main_Menu" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Image x:Name="Image_KawaMenu" HorizontalAlignment="Center" Height="444" VerticalAlignment="Top" Width="820" Source="/Images/KawaMenu.png" Stretch="Fill" Margin="0,-9,0,0" d:IsHidden="True"/>
+            <Button x:Name="Button_Game_Start" Content="Час гульні" HorizontalAlignment="Left" Margin="216,323,0,0" VerticalAlignment="Top" Height="42" Width="151" Click="Button_Game_Start_Click" FontWeight="Bold" FontSize="24" Background="#FFC1A169" d:IsHidden="True"/>
         </Grid>
-        <Grid x:Name="Grid_Deafeat_Menu"/>
+        <Grid x:Name="Grid_Deafeat_Menu" Grid.ColumnSpan="2">
+            <MediaElement x:Name="MediaEl_Defeat" HorizontalAlignment="Left" Height="456" VerticalAlignment="Top" Width="794" Stretch="Fill" Source="/Videos/Laugh.mp4" Position="00:00:00" LoadedBehavior="Manual"/>
+            <Button x:Name="Button_Restart" Content="Паспрабуй Зноў" HorizontalAlignment="Left" Margin="566,354,0,0" VerticalAlignment="Top" Height="48" Width="184" FontSize="22" FontFamily="Microsoft PhagsPa" FontWeight="Bold" Background="#FF3BB7C7" Click="Button_Restart_Click"/>
+        </Grid>
 
     </Grid>
 </Window>

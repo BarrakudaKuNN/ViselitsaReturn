@@ -44,15 +44,12 @@ namespace ViselitsaReturn.Logic
             //Это символ проверки на ошибку "-" метод  Input_Key_Chek_Error() 
             Inputed_Key = local.dictionary.ContainsKey(input_S) ? local.dictionary[input_S] : "-";
             text.Text = Inputed_Key;
-        }
-
-        public void Input_Key_Chek_Error()
-        {
-            if (Inputed_Key == "-")
+            if (Inputed_Key.Equals("-"))
             {
                 atemptCount++;
-                MessageBox.Show("Нажимай на клавиши с буквами", "Ошибочка",   MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Нажимай на клавиши с буквами", "Ошибочка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            
         }
 
         /// <summary>
@@ -74,7 +71,7 @@ namespace ViselitsaReturn.Logic
 
             }
         }
-        public void Show_Matches_Ltr(List<TextBlock> TextList,TextBlock atemtp)
+        public void Show_Matches_Ltr(List<TextBlock> TextList,TextBlock atemtp,Player_UI UI)
         {
            if(inputed_Mathes.Count == 0)
            {
@@ -103,18 +100,20 @@ namespace ViselitsaReturn.Logic
             }
             if (i == word_To_Guess.Count() )
             {
+                atemptCount = 5;
                 UI.Game_Lauch();
                 /// ПОБЕДНЫЙ КОД
 
             }
         }
-        public void Chek_Atempt(Player_UI ui)
+        public void Chek_Atempt(Player_UI ui,MediaElement media)
         {
             if(atemptCount == 0)
             {
+                ui.Game_Lose();
+                media.Source = new Uri(@"Videos\Laugh.mp4", UriKind.Relative);
+                media.Play();
                 atemptCount = 5;
-                ui.Game.Visibility= Visibility.Hidden;
-                ui.Menu.Visibility = Visibility.Visible;
             }
         }
     }

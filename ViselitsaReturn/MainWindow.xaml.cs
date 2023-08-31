@@ -34,7 +34,7 @@ namespace ViselitsaReturn
 
             Core = new CoreLogic();
 
-            UI = new Player_UI(Grid_Main_Menu, Grid_Game_Screen);
+            UI = new Player_UI(Grid_Main_Menu, Grid_Game_Screen,Grid_Deafeat_Menu);
             UI.Game_Lauch();
             TextList = new List<TextBlock>
             {
@@ -52,9 +52,7 @@ namespace ViselitsaReturn
         
         private void Button_Game_Start_Click(object sender, RoutedEventArgs e)
         {
-            var videoPath = Directory.GetCurrentDirectory();
-            MediaEl_Defeat.Source = new Uri(videoPath + @"\Videos\LaughM3.mp3", UriKind.Relative);
-            MediaEl_Defeat.Play();
+            
             //Запускаем случайное слово
             Core.Pic_Random_Word(random, Core.list_Of_Word);
             UI.Game_Start();
@@ -65,14 +63,16 @@ namespace ViselitsaReturn
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             
-
             Core.Translate_Input_Key(e.Key.ToString().ToLower(), TextBlock_Word_1);
-            Core.Input_Key_Chek_Error();
-
             Core.Compare_Input_Key();
-            Core.Show_Matches_Ltr(TextList,TextBlock_Try_Count);
-            Core.Chek_Atempt(UI);
+            Core.Show_Matches_Ltr(TextList,TextBlock_Try_Count,UI);
+            Core.Chek_Atempt(UI,MediaEl_Defeat);
             Core.Chek_If_You_Win(TextList,UI);
+        }
+
+        private void Button_Restart_Click(object sender, RoutedEventArgs e)
+        {
+            UI.Game_Lauch(); 
         }
     }
 }
