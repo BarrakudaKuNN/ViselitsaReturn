@@ -53,7 +53,6 @@ namespace ViselitsaReturn
             //Запускаем случайное слово
             Core.Pic_Random_Word(random, Core.list_Of_Word);
             UI.Game_Start(Media_Back_Song);
-
             UI.Hide_Unused(TextList, Core);
             TextBlock_Try_Count.Text = Core.AtemptCount.ToString();
         }
@@ -75,8 +74,6 @@ namespace ViselitsaReturn
         {
             UI.Game_Lauch();
             i = 0;
-            Media_Back_Song.Source = new Uri(@"Music\Chill", UriKind.Relative);
-            
         }
     }
 }

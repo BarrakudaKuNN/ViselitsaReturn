@@ -45,7 +45,7 @@
                 </TextBlock.Background>
             </TextBlock>
         </Grid>
-        <MediaElement x:Name="Media_Back_Song" HorizontalAlignment="Left" Height="456" VerticalAlignment="Top" Width="794" Stretch="Fill" Source="/Music/Chill.mp3" Position="00:00:00" LoadedBehavior="Manual" Grid.ColumnSpan="3"/>
+        <MediaElement x:Name="Media_Back_Song" HorizontalAlignment="Left" Height="456" VerticalAlignment="Top" Width="794" Stretch="Fill" Source="/Music/Chill.mp3" Position="00:00:00" LoadedBehavior="Manual" Grid.ColumnSpan="3" Volume="0.2"/>
 
     </Grid>
 </Window>
