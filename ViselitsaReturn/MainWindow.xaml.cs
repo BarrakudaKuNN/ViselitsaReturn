@@ -26,6 +26,7 @@ namespace ViselitsaReturn
         CoreLogic Core;
         Player_UI UI;
         List<TextBlock> TextList;
+        int i = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,8 +34,7 @@ namespace ViselitsaReturn
             random= new Random();
 
             Core = new CoreLogic();
-
-            UI = new Player_UI(Grid_Main_Menu, Grid_Game_Screen,Grid_Deafeat_Menu);
+            UI = new Player_UI(Grid_Main_Menu, Grid_Game_Screen,Grid_Deafeat_Menu,Grid_Win);
             UI.Game_Lauch();
             TextList = new List<TextBlock>
             {
@@ -46,33 +46,37 @@ namespace ViselitsaReturn
                 TextBlock_Word_8
             };
         }
-        private MediaPlayer _player;
-
-        string d = "Videos/Laugh.mp4";
         
         private void Button_Game_Start_Click(object sender, RoutedEventArgs e)
         {
-            
+            i++;
             //Запускаем случайное слово
             Core.Pic_Random_Word(random, Core.list_Of_Word);
-            UI.Game_Start();
+            UI.Game_Start(Media_Back_Song);
+
             UI.Hide_Unused(TextList, Core);
             TextBlock_Try_Count.Text = Core.AtemptCount.ToString();
         }
         
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (i > 0)
+            {
+                Core.Translate_Input_Key(e.Key.ToString().ToLower(), TextBlock_Word_1);
+                Core.Compare_Input_Key();
+                Core.Show_Matches_Ltr(TextList, TextBlock_Try_Count, UI);
+                Core.Chek_Atempt(UI, MediaEl_Defeat, Media_Back_Song);
+                Core.Chek_If_You_Win(TextList, UI, Media_Win_Reward,Media_Back_Song, TextBlock_Win);
+            }
             
-            Core.Translate_Input_Key(e.Key.ToString().ToLower(), TextBlock_Word_1);
-            Core.Compare_Input_Key();
-            Core.Show_Matches_Ltr(TextList,TextBlock_Try_Count,UI);
-            Core.Chek_Atempt(UI,MediaEl_Defeat);
-            Core.Chek_If_You_Win(TextList,UI);
         }
 
         private void Button_Restart_Click(object sender, RoutedEventArgs e)
         {
-            UI.Game_Lauch(); 
+            UI.Game_Lauch();
+            i = 0;
+            Media_Back_Song.Source = new Uri(@"Music\Chill", UriKind.Relative);
+            
         }
     }
 }

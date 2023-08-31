@@ -44,6 +44,7 @@ namespace ViselitsaReturn.Logic
             //Это символ проверки на ошибку "-" метод  Input_Key_Chek_Error() 
             Inputed_Key = local.dictionary.ContainsKey(input_S) ? local.dictionary[input_S] : "-";
             text.Text = Inputed_Key;
+
             if (Inputed_Key.Equals("-"))
             {
                 atemptCount++;
@@ -87,12 +88,12 @@ namespace ViselitsaReturn.Logic
                 }
             }
         }
-        public void Chek_If_You_Win(List<TextBlock> TextList,Player_UI UI)
+        public void Chek_If_You_Win(List<TextBlock> TextList,Player_UI UI,MediaElement media,MediaElement off,TextBlock text)
         {
             int i = 0;
             for (int j = 0; j< word_To_Guess.Count(); j++, i++)
             {
-                if (TextList[j].Text == "-")
+                if (TextList[j].Text.Equals("-"))
                 {
                     i = 0;
                     break;
@@ -101,18 +102,17 @@ namespace ViselitsaReturn.Logic
             if (i == word_To_Guess.Count() )
             {
                 atemptCount = 5;
-                UI.Game_Lauch();
+                UI.Game_Win(media, text, off);
                 /// ПОБЕДНЫЙ КОД
 
             }
         }
-        public void Chek_Atempt(Player_UI ui,MediaElement media)
+        public void Chek_Atempt(Player_UI ui,MediaElement media, MediaElement off)
         {
             if(atemptCount == 0)
             {
-                ui.Game_Lose();
-                media.Source = new Uri(@"Videos\Laugh.mp4", UriKind.Relative);
-                media.Play();
+                ui.Game_Lose(media,off);
+                
                 atemptCount = 5;
             }
         }

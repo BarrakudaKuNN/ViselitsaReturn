@@ -14,20 +14,18 @@ namespace ViselitsaReturn.Logic
         Grid menu;
         Grid game;
         Grid lose;
+        Grid win;
 
-        public Grid Menu { get => menu; set => menu = value; }
-        public Grid Game { get => game; set => game = value; }
-        public Grid Lose { get => lose; set => lose = value; }
-
-        public Player_UI(Grid menu,Grid game,Grid lose) 
+        public Player_UI(Grid menu, Grid game, Grid lose, Grid win)
         {
             this.menu = menu;
             this.game = game;
-            this.Lose = lose;
+            this.lose = lose;
+            this.win = win;
         }
         //Перебіраем все техтбоксы и прячем их
         //Оставшиеся заполняем нейтральным словом "-"
-        public void Hide_Unused(List<TextBlock> TextList,CoreLogic Core)
+        public void Hide_Unused(List<TextBlock> TextList, CoreLogic Core)
         {
             foreach (var item in TextList)
             {
@@ -41,21 +39,38 @@ namespace ViselitsaReturn.Logic
         }
         public void Game_Lauch()
         {
-            Menu.Visibility=System.Windows.Visibility.Visible;
-            Game.Visibility=System.Windows.Visibility.Hidden;
-            Lose.Visibility=System.Windows.Visibility.Hidden;
+            menu.Visibility = System.Windows.Visibility.Visible;
+            game.Visibility = System.Windows.Visibility.Hidden;
+            lose.Visibility = System.Windows.Visibility.Hidden;
         }
-        public void Game_Start()
+        public void Game_Start(MediaElement media)
         {
-            Menu.Visibility = System.Windows.Visibility.Hidden;
-            Game.Visibility = System.Windows.Visibility.Visible;
+            media.Source = new Uri(@"Music\Chill.mp3", UriKind.Relative);
+            media.Play();
+            menu.Visibility = System.Windows.Visibility.Hidden;
+            game.Visibility = System.Windows.Visibility.Visible;
         }
 
-        public void Game_Lose()
+        public void Game_Lose(MediaElement media,MediaElement mediaOff)
         {
-            Lose.Visibility = System.Windows.Visibility.Visible;
 
             game.Visibility = System.Windows.Visibility.Hidden;
+            lose.Visibility = System.Windows.Visibility.Visible;
+            media.Source = new Uri(@"Videos\Laugh.mp4", UriKind.Relative);
+            mediaOff.Stop();
+            media.Play();
+            
+        }
+        public void Game_Win(MediaElement media,TextBlock text, MediaElement off)
+        {
+
+            game.Visibility = System.Windows.Visibility.Hidden;
+            win.Visibility = System.Windows.Visibility.Visible;
+            text.Text = "Ты выиграл, Чемпион.    Теперь отдохни с нами и расслабься.  Голые девки подождут";
+            off.Stop();
+            media.Source = new Uri(@"Videos\Pat.mp4", UriKind.Relative);
+            media.Play();
+            
         }
     }
 }
